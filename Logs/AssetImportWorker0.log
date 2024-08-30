@@ -15,7 +15,7 @@ C:/Users/hugoj/Desktop/TP1
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49988
+54962
 Successfully changed project path to: C:/Users/hugoj/Desktop/TP1
 C:/Users/hugoj/Desktop/TP1
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/hugoj/Desktop/TP1
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37936] Host "[IP] 172.22.147.94 [Port] 0 [Flags] 2 [Guid] 16887891 [EditorId] 16887891 [Version] 1048832 [Id] WindowsEditor(7,Hugo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [11668] Host "[IP] 10.0.0.32 [Port] 0 [Flags] 2 [Guid] 1941024393 [EditorId] 1941024393 [Version] 1048832 [Id] WindowsEditor(7,Hugo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [37936] Host "[IP] 172.22.147.94 [Port] 0 [Flags] 2 [Guid] 16887891 [EditorId] 16887891 [Version] 1048832 [Id] WindowsEditor(7,Hugo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [11668] Host "[IP] 10.0.0.32 [Port] 0 [Flags] 2 [Guid] 1941024393 [EditorId] 1941024393 [Version] 1048832 [Id] WindowsEditor(7,Hugo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 7.99 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 8.52 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.18f1 (d29bea25151d)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/Resources/UnitySubsystems
@@ -70,49 +70,49 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56176
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56140
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008375 seconds.
-- Loaded All Assemblies, in  0.352 seconds
+Registered in 0.009043 seconds.
+- Loaded All Assemblies, in  0.455 seconds
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 [usbmuxd] Send listen message
 Native extension for iOS target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.296 seconds
-Domain Reload Profiling: 647ms
-	BeginReloadAssembly (110ms)
+- Finished resetting the current domain, in  0.444 seconds
+Domain Reload Profiling: 898ms
+	BeginReloadAssembly (138ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (40ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (60ms)
-	LoadAllAssembliesAndSetupDomain (131ms)
-		LoadAssemblies (107ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (188ms)
+		LoadAssemblies (134ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (129ms)
-			TypeCache.Refresh (128ms)
-				TypeCache.ScanAssembly (115ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (186ms)
+			TypeCache.Refresh (184ms)
+				TypeCache.ScanAssembly (163ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (296ms)
+	FinalizeReload (445ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (236ms)
+		SetupLoadedEditorAssemblies (350ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (31ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (55ms)
+			SetLoadedEditorAssemblies (9ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (145ms)
-			ProcessInitializeOnLoadMethodAttributes (53ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (214ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -120,8 +120,8 @@ Domain Reload Profiling: 647ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.707 seconds
-Refreshing native plugins compatible for Editor in 4.47 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.713 seconds
+Refreshing native plugins compatible for Editor in 5.35 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Package Manager log level set to [2]
@@ -129,47 +129,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.647 seconds
-Domain Reload Profiling: 1352ms
-	BeginReloadAssembly (154ms)
+- Finished resetting the current domain, in  0.747 seconds
+Domain Reload Profiling: 1458ms
+	BeginReloadAssembly (167ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (27ms)
-	RebuildCommonClasses (30ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (31ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (49ms)
-	LoadAllAssembliesAndSetupDomain (462ms)
-		LoadAssemblies (341ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (460ms)
+		LoadAssemblies (343ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (207ms)
-			TypeCache.Refresh (182ms)
-				TypeCache.ScanAssembly (164ms)
-			ScanForSourceGeneratedMonoScriptInfo (19ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (648ms)
+		AnalyzeDomain (209ms)
+			TypeCache.Refresh (189ms)
+				TypeCache.ScanAssembly (170ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (748ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (473ms)
+		SetupLoadedEditorAssemblies (569ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (24ms)
+			InitializePlatformSupportModulesInManaged (31ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (64ms)
-			ProcessInitializeOnLoadAttributes (349ms)
-			ProcessInitializeOnLoadMethodAttributes (22ms)
+			BeforeProcessingInitializeOnLoad (72ms)
+			ProcessInitializeOnLoadAttributes (425ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
 			AfterProcessingInitializeOnLoad (8ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (7ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 4.32 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 5.26 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3098 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (57.0 KB). Loaded Objects now: 3559.
-Memory consumption went from 123.1 MB to 123.1 MB.
-Total: 3.772300 ms (FindLiveObjects: 0.494100 ms CreateObjectMapping: 0.268400 ms MarkObjects: 2.908100 ms  DeleteObjects: 0.100800 ms)
+Unloading 3493 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 39 unused Assets / (57.5 KB). Loaded Objects now: 3956.
+Memory consumption went from 131.6 MB to 131.5 MB.
+Total: 3.729700 ms (FindLiveObjects: 0.280900 ms CreateObjectMapping: 0.095700 ms MarkObjects: 3.189000 ms  DeleteObjects: 0.162900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -187,49 +187,86 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 423124.194611 seconds.
-  path: Assets/Scenes/SampleScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eb94b4ff686b862ae03816201b87c9c') in 0.002172 seconds
+  Time since last request: 506172.373946 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Ceiling/Ceiling Closed.prefab
+  artifactKey: Guid(eb4b38db67a56dc469a2c2aafcc36add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Ceiling/Ceiling Closed.prefab using Guid(eb4b38db67a56dc469a2c2aafcc36add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d5f4204e67d6ae3a1e423c9f56ee1b4') in 0.130243 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 11
 ========================================================================
 Received Import Request.
-  Time since last request: 3.126880 seconds.
-  path: Assets/Scenes/SampleScene
-  artifactKey: Guid(63a24090058ad294fa67fcde6bd3201a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene using Guid(63a24090058ad294fa67fcde6bd3201a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9c62c48c2daef23f927c37c707ca29') in 0.000576 seconds
+  Time since last request: 0.000028 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Wide Corner Windows.prefab
+  artifactKey: Guid(5ceb30273fce6374fadb842df014e681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Wide Corner Windows.prefab using Guid(5ceb30273fce6374fadb842df014e681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc087be0d39608e8c3005a158fa7a96') in 0.104017 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 63
 ========================================================================
 Received Import Request.
-  Time since last request: 0.102893 seconds.
-  path: Assets/Scenes/SampleScene/NavMesh-NavMesh Surface.asset
-  artifactKey: Guid(f8c9d7f2891832e429bf8fb4022fed35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene/NavMesh-NavMesh Surface.asset using Guid(f8c9d7f2891832e429bf8fb4022fed35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '662f5a3a35c13d26634eea542d79eadc') in 0.008071 seconds
+  Time since last request: 0.000043 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Floor/Floor Tile 02.prefab
+  artifactKey: Guid(aae952dc76387e84287a598d901b120d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Floor/Floor Tile 02.prefab using Guid(aae952dc76387e84287a598d901b120d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e683a171214a6c9dbf4cc482226a8846') in 0.027949 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 11
 ========================================================================
 Received Import Request.
-  Time since last request: 7.458093 seconds.
-  path: Assets/Prefab/Ceiling.prefab
-  artifactKey: Guid(d96f92a75a4c98e4a98ad5b391be527d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Ceiling.prefab using Guid(d96f92a75a4c98e4a98ad5b391be527d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd9e3b10386e22889d583da343ffff86') in 0.317648 seconds
+  Time since last request: 0.000045 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Wide.prefab
+  artifactKey: Guid(a57680777d3403843b1e6d4a5b05e5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Wide.prefab using Guid(a57680777d3403843b1e6d4a5b05e5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b544b34e5a744ef66a0486a7711ce69') in 0.054010 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 554
+Number of asset objects unloaded after import = 51
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefab/Wall_2.prefab
-  artifactKey: Guid(e2276ae04a2f43d4d92738e1649e2f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Wall_2.prefab using Guid(e2276ae04a2f43d4d92738e1649e2f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50843b1cc7edce481792fff0c9743c3c') in 0.094183 seconds
+  Time since last request: 0.000020 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Funnel.prefab
+  artifactKey: Guid(5fe80adc9613d154d800b6453f8cdd3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Funnel.prefab using Guid(5fe80adc9613d154d800b6453f8cdd3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9e87d5e6bad19a0f8be0e12dbff0cbf') in 0.056510 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 620
+Number of asset objects unloaded after import = 50
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Prefab/Wall_1.prefab
-  artifactKey: Guid(bb43143cebc347d40a1fd19ae168a0ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Wall_1.prefab using Guid(bb43143cebc347d40a1fd19ae168a0ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c80b537258964aa92386089af53bc39f') in 0.484258 seconds
+  Time since last request: 0.000035 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Tee Lights.prefab
+  artifactKey: Guid(ad6aae32dd3eb844fa75e2a156bbe34f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Tee Lights.prefab using Guid(ad6aae32dd3eb844fa75e2a156bbe34f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c78c0629a353200f63056bb3b7c0d854') in 0.056055 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 423
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Doors.prefab
+  artifactKey: Guid(2786dfa44f873aa478bb54f2d68fcc64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Doors.prefab using Guid(2786dfa44f873aa478bb54f2d68fcc64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2323bbd80b5838a0e22e9303f7bdc05') in 0.062454 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 57
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor 4-Way Lights.prefab
+  artifactKey: Guid(dcbf59da08760fb4b9531995a6691a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor 4-Way Lights.prefab using Guid(dcbf59da08760fb4b9531995a6691a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4731e23de7769e7c15dfaefbfcfc9dce') in 0.060624 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Corner Lights.prefab
+  artifactKey: Guid(0d9d85399f9310e458b966faa3d36bdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Corner Lights.prefab using Guid(0d9d85399f9310e458b966faa3d36bdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f02609a6779146d49b9bae2b74de3173') in 0.070052 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 47
+========================================================================
+Received Import Request.
+  Time since last request: 0.000094 seconds.
+  path: Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Corner.prefab
+  artifactKey: Guid(0caa079a07bb6bb4d8189cbe94d69429) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SciFi Warehouse Kit/Prefabs/Structures/Corridors/Corridor Corner.prefab using Guid(0caa079a07bb6bb4d8189cbe94d69429) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f96fa42aee901a2cc83268aa3888828') in 0.056642 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 58
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
