@@ -38,14 +38,6 @@ namespace ControllerModule.Controllers
         public void OnLook(InputValue value) => this.Look?.Invoke(value.Get<Vector2>());
         public void OnMove(InputValue value) => this.Move?.Invoke(value.Get<Vector2>());
 
-        public void Fire(InputAction.CallbackContext context)
-        {
-            if (context.started)
-                this.OnFireStart?.Invoke();
-            else if (context.canceled)
-                this.OnFireEnd?.Invoke();
-        }
-
         public void Unmount(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -119,6 +111,10 @@ namespace ControllerModule.Controllers
             var sprintAction = this.playerInput.actions["Sprint"];
             sprintAction.started += _ => this.SprintStart?.Invoke();
             sprintAction.canceled += _ => this.SprintEnd?.Invoke();
+
+            var fireAction = this.playerInput.actions["Fire"];
+            fireAction.started += _ => this.OnFireStart?.Invoke();
+            fireAction.canceled += _ => this.OnFireEnd?.Invoke();
         }
 
         #endregion

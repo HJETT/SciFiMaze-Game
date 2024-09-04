@@ -30,11 +30,20 @@ public class PlayerController : Controller
     /// <inheritdoc/>
     public override void OnSprintEnd() => this.playerMovement.EndSprint();
 
+    [Header("Interaction")]
+    [SerializeField]
+    private PlayerInteraction playerInteraction;
+
+    /// <inheritdoc/>
+    public override void OnFireStart() => this.playerInteraction.Interact();
+
     /// <inheritdoc/>
     protected override void OnUpdate(float elapsed)
     {
         this.playerMovement.ProcessMovement(this.movementDirection, elapsed);
         this.playerMovement.ProcessGravity(elapsed);
         this.playerMovement.ProcessJump();
+
+        this.playerInteraction.UpdateCursor();
     }
 }
