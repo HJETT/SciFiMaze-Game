@@ -82,6 +82,7 @@
     <Compile Include="Assets/PlayerModule/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Utils/RandomUtils.cs" />
     <Compile Include="Assets/Controllers/Scripts/Controllers/ControllerManager.cs" />
+    <Compile Include="Assets/ThirdParty/Enemies/Imp/ImpEnemy.cs" />
     <Compile Include="Assets/Controllers/Temp/TempController2.cs" />
     <Compile Include="Assets/Controllers/Scripts/Controllers/Controller.cs" />
     <Compile Include="Assets/PlayerModule/Scripts/PlayerInteraction.cs" />
