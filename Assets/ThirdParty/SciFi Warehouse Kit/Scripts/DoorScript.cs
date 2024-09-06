@@ -35,17 +35,35 @@ public class DoorScript : MonoBehaviour
 
         currentPos = Mathf.Clamp01(currentPos);
 
-        this.moveTransform.localPosition = Vector3.Lerp(
-            this.minPos,
-            this.maxPos,
+        moveTransform.localPosition = Vector3.Lerp(
+            minPos,
+            maxPos,
             currentPos
         );
+
+        SetLight(lightColor.Evaluate(currentPos));
     }
 
     public void SetPosition(float position)
     {
         position = Mathf.Clamp01(position);
-
         targetPos = position;
     }
+
+    #region Lights
+
+    [Header("Lights")]
+    [SerializeField]
+    private LightScript[] lights;
+
+    [SerializeField]
+    private Gradient lightColor;
+
+    private void SetLight(Color color)
+    {
+        foreach (var item in this.lights)
+            item.SetColor(color);
+    }
+
+    #endregion
 }
