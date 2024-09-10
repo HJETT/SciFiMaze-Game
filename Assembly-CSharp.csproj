@@ -60,33 +60,34 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Controllers\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\ThirdParty\Lever\Scripts\LeverInteract.cs" />
-    <Compile Include="Assets\Extensions\IListExtension.cs" />
-    <Compile Include="Assets\Controllers\Scripts\LookController.cs" />
-    <Compile Include="Assets\PlayerModule\Scripts\IInteractable.cs" />
-    <Compile Include="Assets\Controllers\Scripts\Interfaces\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\Controllers\ControllerManager.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\DoorManager.cs" />
-    <Compile Include="Assets\PlayerModule\Scripts\Slider.cs" />
-    <Compile Include="Assets\Controllers\Temp\InteractBlock.cs" />
+    <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\LookController.cs" />
+    <Compile Include="Assets\Scripts\Extensions\VectorExtensions.cs" />
+    <Compile Include="Assets\Scripts\Player\Slider.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\LightScript.cs" />
-    <Compile Include="Assets\Controllers\Temp\TempController1.cs" />
-    <Compile Include="Assets\Controllers\Scripts\InputMaster.cs" />
-    <Compile Include="Assets\Controllers\Temp\ToggleInteract.cs" />
-    <Compile Include="Assets\Utils\Singleton.cs" />
-    <Compile Include="Assets\Extensions\TransformExtension.cs" />
-    <Compile Include="Assets\Extensions\VectorExtensions.cs" />
-    <Compile Include="Assets\PlayerModule\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Utils\RandomUtils.cs" />
-    <Compile Include="Assets\Controllers\Scripts\Controllers\ControllerManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameManager\MazeGenerator.cs" />
+    <Compile Include="Assets\Scripts\Utils\RandomUtils.cs" />
+    <Compile Include="Assets\Scripts\Player\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\InputMaster.cs" />
+    <Compile Include="Assets\Scripts\Extensions\IEnumerableExtension.cs" />
     <Compile Include="Assets\ThirdParty\Enemies\Imp\ImpEnemy.cs" />
-    <Compile Include="Assets\Controllers\Temp\TempController2.cs" />
-    <Compile Include="Assets\Controllers\Scripts\Controllers\Controller.cs" />
-    <Compile Include="Assets\PlayerModule\Scripts\PlayerInteraction.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\Interfaces\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Temp\TempController1.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Scripts\Controllers\Controller.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Temp\ToggleInteract.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\DoorScript.cs" />
-    <Compile Include="Assets\Controllers\Temp\ControllerInteract.cs" />
-    <Compile Include="Assets\Extensions\IEnumerableExtension.cs" />
-    <Compile Include="Assets\PlayerModule\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Temp\ControllerInteract.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Temp\TempController2.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Temp\InteractBlock.cs" />
+    <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
+    <Compile Include="Assets\Scripts\Extensions\IListExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
