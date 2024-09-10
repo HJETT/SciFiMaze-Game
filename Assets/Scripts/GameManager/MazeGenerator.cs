@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
@@ -13,6 +14,7 @@ public class MazeGenerator : MonoBehaviour
 
         Generate(10, 10);
         GenerateDoors(10, 10);
+        GenerateLevers(10, 10);
     }
 
     #region Walls
@@ -21,6 +23,7 @@ public class MazeGenerator : MonoBehaviour
     public WeightedItem[] wallVariants;
     public float wallWidth;
     public Transform wallParent;
+    public GameObject exitDoorPrefab;
 
     private void GenerateExterior(int width, int height)
     {
@@ -50,16 +53,25 @@ public class MazeGenerator : MonoBehaviour
             wall.name += " (East)";
         }
 
+        int rndIndex = Random.Range(0, width);
         // West
         for (int i = 0; i < width; i++)
         {
-            var wall = Instantiate(GetRandomExterior(), wallParent);
+            GameObject prefab = i == rndIndex ? exitDoorPrefab : GetRandomExterior();
+            var wall = Instantiate(prefab, wallParent);
             wall.transform.localPosition = new Vector3(i + 1, 0, width) * wallWidth;
             wall.transform.localRotation = Quaternion.Euler(0, -90, 0);
-            wall.name += " (West)";
+
+            if (i == rndIndex)
+            {
+                GameManager.Instance.exitDoorScript = wall.GetComponent<ExitDoorScript>();
+                wall.name += " (Exit)";
+            }
+            else
+                wall.name += " (West)";
         }
     }
-
+    
     private GameObject GetRandomExterior() => GetRandom(wallVariants);
 
     #endregion
@@ -206,6 +218,68 @@ public class MazeGenerator : MonoBehaviour
 
     #endregion
 
+    #region Lever
+
+    [Header("Levers")]
+    [SerializeField] GameObject lever;
+    [SerializeField] Transform leverParent;
+    private int maxCountLevers = 3;
+
+    private void GenerateLevers(int width, int height)
+    {
+        List<Vector2Int> positions = new List<Vector2Int>();
+        List<Vector2Int> leversPos = new List<Vector2Int>();
+        for(int y = 0; y < height; y++) 
+        {
+            for(int x = 0; x < width; x++)
+            {
+                positions.Add(new Vector2Int(x, y));
+            }
+        }
+        
+        while (leversPos.Count < maxCountLevers && positions.Count > 0)
+        {
+            int rndIndex = Random.Range(0, positions.Count);
+            Vector2Int pos = positions[rndIndex];
+            positions.RemoveAt(rndIndex);
+            if(!IsLeverValid(pos, leversPos))
+                continue;
+
+            leversPos.Add(pos);
+        }
+
+        foreach (var pos in leversPos)
+        {
+            GameObject newLever = Instantiate(lever, leverParent);
+            newLever.transform.localPosition = new Vector3(pos.x, 0, pos.y) * floorSize;
+        }
+    }
+    private bool IsLeverValid(Vector2Int position, List<Vector2Int> leverPositions)
+    {
+        if (leverPositions.Count == 0) return true;
+
+        List<Vector2Int> neighborPos = new List<Vector2Int>()
+        {
+            new(position.x - 1, position.y - 1),
+            new(position.x - 1, position.y),
+            new(position.x - 1, position.y + 1),
+            new(position.x, position.y - 1),
+            new(position.x, position.y + 1),
+            new(position.x + 1, position.y - 1),
+            new(position.x + 1, position.y),
+            new(position.x + 1, position.y + 1),
+        };
+
+        foreach (var pos in leverPositions)
+        {
+            if (neighborPos.Contains(pos))
+                return false;
+        }
+
+        return true;
+    }
+    #endregion
+
     #region Generation
 
     private Cell[] _cells;
@@ -294,14 +368,15 @@ public class MazeGenerator : MonoBehaviour
 
         if (cell1.Y > cell2.Y)
         {
-            cell1.State &= ~CellState.Top;
-            cell2.State &= ~CellState.Bottom;
+            cell1.State &= ~CellState.Bottom;
+            cell2.State &= ~CellState.Top;
+           
         }
 
         if (cell1.Y < cell2.Y)
         {
-            cell1.State &= ~CellState.Bottom;
-            cell2.State &= ~CellState.Top;
+            cell1.State &= ~CellState.Top;
+            cell2.State &= ~CellState.Bottom;
         }
     }
 

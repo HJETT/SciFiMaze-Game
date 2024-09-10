@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ThirdParty\Lever\Scripts\LeverInteract.cs" />
+    <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\Scripts\Controllers\ControllerManager.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\DoorManager.cs" />
     <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\Controllers\Temp\ControllerInteract.cs" />
     <Compile Include="Assets\Scripts\Controllers\Temp\TempController2.cs" />
+    <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\ExitDoorScript.cs" />
     <Compile Include="Assets\Scripts\Controllers\Temp\InteractBlock.cs" />
     <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Extensions\IListExtension.cs" />
