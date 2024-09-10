@@ -1,5 +1,6 @@
 using ControllerModule.Controllers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,11 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Controller controller;
 
     [SerializeField]
-    private float walkSpeed = 10;
+    private float walkSpeed = 8;
 
-    
-
-    private float currentSpeed = 10;
+    private float currentSpeed = 8;
 
     #region Movement
 
@@ -118,17 +117,43 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sprint")]
     [SerializeField]
+    private Image slider;
+
+    [SerializeField]
     private float sprintSpeed = 15;
 
+    [SerializeField]
+    private float energy = 3;
+
+    [SerializeField]
+    private float maxEnergy = 3;
+
+    private bool isSprinting = false;
     public void StartSprint()
     {
-        this.currentSpeed = this.sprintSpeed;
+        this.isSprinting = true;   
     }
 
     public void EndSprint()
     {
-        this.currentSpeed = this.walkSpeed;
+        this.isSprinting = false;
     }
 
+    public void ProcessSprint()
+    {
+        if(isSprinting && energy > 0)
+        {
+            this.currentSpeed = this.sprintSpeed;
+            energy -= Time.deltaTime;
+        }
+        else
+        {
+            this.currentSpeed = this.walkSpeed;
+            if (!this.isSprinting)
+                energy += Time.deltaTime;
+        }
+        energy = Mathf.Clamp(energy, 0, maxEnergy);
+        slider.fillAmount = energy / maxEnergy;
+    }
     #endregion
 }

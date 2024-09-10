@@ -43,7 +43,7 @@ public class PlayerController : Controller
         this.playerMovement.ProcessMovement(this.movementDirection, elapsed);
         this.playerMovement.ProcessGravity(elapsed);
         this.playerMovement.ProcessJump();
-
+        this.playerMovement.ProcessSprint();
         this.playerInteraction.UpdateCursor();
     }
 }

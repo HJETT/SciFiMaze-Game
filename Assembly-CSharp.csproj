@@ -67,6 +67,7 @@
     <Compile Include="Assets\PlayerModule\Scripts\IInteractable.cs" />
     <Compile Include="Assets\Controllers\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\DoorManager.cs" />
+    <Compile Include="Assets\PlayerModule\Scripts\Slider.cs" />
     <Compile Include="Assets\Controllers\Temp\InteractBlock.cs" />
     <Compile Include="Assets\ThirdParty\SciFi Warehouse Kit\Scripts\LightScript.cs" />
     <Compile Include="Assets\Controllers\Temp\TempController1.cs" />
@@ -966,6 +967,10 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
