@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011681092885628524}
+  - component: {fileID: -446972967083910262}
   m_Layer: 0
   m_Name: PropsBlockage
   m_TagString: Untagged
@@ -37,6 +38,20 @@ Transform:
   - {fileID: 5112347345029385751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-446972967083910262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533791204264822389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe998e590f18ea4f29596f520daa36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  activationDistance: 30
 --- !u!1001 &1086468189867756095
 PrefabInstance:
   m_ObjectHideFlags: 0

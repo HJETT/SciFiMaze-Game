@@ -68,9 +68,8 @@ public class ExitDoorScript : MonoBehaviour
     #endregion
 
     #region "Trigger"
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Collision");
-    }
+
+    private void OnTriggerEnter(Collider other) => GameManager.Instance.NextLevel();
+    
     #endregion
 }

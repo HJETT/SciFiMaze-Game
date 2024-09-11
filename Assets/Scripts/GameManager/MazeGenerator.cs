@@ -1,20 +1,38 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MazeGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        GenerateExterior(10, 10);
-        GenerateFloor(10, 10);
-        GenerateCeiling(10, 10);
+    public NavMeshSurface NavMeshSurface;
 
-        Generate(10, 10);
-        GenerateDoors(10, 10);
+    public void BuildMaze()
+    {
+        int width = 10;
+        int height = 10;
+
+        foreach (Transform parents in transform)
+        {
+            foreach (Transform child in parents)
+            {
+                child.gameObject.SetActive(false);
+                Destroy(child.gameObject);
+            }
+        }
+
+        NavMesh.RemoveAllNavMeshData();
+
+        GenerateExterior(width, height);
+        GenerateFloor(width, height);
+        GenerateCeiling(width, height);
+
+        Generate(width, height);
+        GenerateDoors(width, height);
         GenerateLevers(10, 10);
+
+        NavMeshSurface.BuildNavMesh();
     }
 
     #region Walls

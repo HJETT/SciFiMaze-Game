@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 972244189732658583}
   - component: {fileID: 7217413930373904102}
   - component: {fileID: 4385469996060815257}
+  - component: {fileID: -5597446821073669408}
   m_Layer: 0
   m_Name: Flashing Closed Door
   m_TagString: Untagged
@@ -314,6 +315,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5597446821073669408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261886463943454596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe998e590f18ea4f29596f520daa36af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  activationDistance: 30
 --- !u!1 &4874623087457867524
 GameObject:
   m_ObjectHideFlags: 0
