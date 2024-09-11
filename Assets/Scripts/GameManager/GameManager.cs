@@ -7,12 +7,17 @@ public class GameManager : Singleton<GameManager>
 {
     public Controller player;
     public MazeGenerator mazeGenerator;
-
+    public GameOver gameOver;
     private void Start()
     {
         this.NextLevel();
+        gameOver.isDead = true;
     }
 
+    public void PlayerDeath() 
+    {
+        gameOver.isDead = true;
+    }
 
     public void NextLevel()
     {
