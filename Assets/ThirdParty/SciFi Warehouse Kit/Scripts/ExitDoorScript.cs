@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ExitDoorScript : MonoBehaviour
 {
-    #region "Lights"
+    #region Lights
 
     [SerializeField]
     public Gradient lightColor;
@@ -67,7 +67,7 @@ public class ExitDoorScript : MonoBehaviour
 
     #endregion
 
-    #region "Trigger"
+    #region Trigger
 
     private void OnTriggerEnter(Collider other) => GameManager.Instance.NextLevel();
     
