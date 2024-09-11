@@ -69,7 +69,7 @@ public class ExitDoorScript : MonoBehaviour
 
     #region Trigger
 
-    private void OnTriggerEnter(Collider other) => GameManager.Instance.NextLevel();
+    private void OnTriggerEnter(Collider other) => GameManager.Instance.NextLevelSequence();
     
     #endregion
 }
