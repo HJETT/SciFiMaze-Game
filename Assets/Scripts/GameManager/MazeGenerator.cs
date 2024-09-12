@@ -2,17 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MazeGenerator : MonoBehaviour
 {
-    public NavMeshSurface NavMeshSurface;
-
-    public void BuildMaze()
+    public void BuildMaze(int width, int height)
     {
-        int width = 10;
-        int height = 10;
-
         foreach (Transform parents in transform)
         {
             foreach (Transform child in parents)
@@ -22,24 +16,41 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        NavMesh.RemoveAllNavMeshData();
-
+        // Generate walls
         GenerateExterior(width, height);
         GenerateFloor(width, height);
         GenerateCeiling(width, height);
 
+        // Generate doors
         Generate(width, height);
         GenerateDoors(width, height);
-        GenerateLevers(10, 10);
 
-        NavMeshSurface.BuildNavMesh();
+        // Generate extra
+        GenerateLevers(width, height);
+        GenerateDecors(width, height);
+
+        BuildMesh();
     }
+
+    private const float TILE_SIZE = 6;
+
+    #region Surfaces
+
+    [SerializeField]
+    private NavMeshSurface[] surfaces;
+
+    private void BuildMesh()
+    {
+        foreach (var item in surfaces)
+            item.BuildNavMesh();
+    }
+
+    #endregion
 
     #region Walls
 
     [Header("Walls")]
     public WeightedItem[] wallVariants;
-    public float wallWidth;
     public Transform wallParent;
     public GameObject exitDoorPrefab;
 
@@ -49,7 +60,7 @@ public class MazeGenerator : MonoBehaviour
         for (int i = 0; i < width; i++)
         {
             var wall = Instantiate(GetRandomExterior(), wallParent);
-            wall.transform.localPosition = new Vector3(0, 0, i + 1) * wallWidth;
+            wall.transform.localPosition = new Vector3(0, 0, i + 1) * TILE_SIZE;
             wall.transform.localRotation = Quaternion.Euler(0, 180, 0);
             wall.name += " (South)";
         }
@@ -58,7 +69,7 @@ public class MazeGenerator : MonoBehaviour
         for (int i = 0; i < width; i++)
         {
             var wall = Instantiate(GetRandomExterior(), wallParent);
-            wall.transform.localPosition = new Vector3(height, 0, i) * wallWidth;
+            wall.transform.localPosition = new Vector3(height, 0, i) * TILE_SIZE;
             wall.name += " (North)";
         }
 
@@ -66,7 +77,7 @@ public class MazeGenerator : MonoBehaviour
         for (int i = 0; i < width; i++)
         {
             var wall = Instantiate(GetRandomExterior(), wallParent);
-            wall.transform.localPosition = new Vector3(i, 0, 0) * wallWidth;
+            wall.transform.localPosition = new Vector3(i, 0, 0) * TILE_SIZE;
             wall.transform.localRotation = Quaternion.Euler(0, 90, 0);
             wall.name += " (East)";
         }
@@ -77,7 +88,7 @@ public class MazeGenerator : MonoBehaviour
         {
             GameObject prefab = i == rndIndex ? exitDoorPrefab : GetRandomExterior();
             var wall = Instantiate(prefab, wallParent);
-            wall.transform.localPosition = new Vector3(i + 1, 0, width) * wallWidth;
+            wall.transform.localPosition = new Vector3(i + 1, 0, width) * TILE_SIZE;
             wall.transform.localRotation = Quaternion.Euler(0, -90, 0);
 
             if (i == rndIndex)
@@ -98,7 +109,6 @@ public class MazeGenerator : MonoBehaviour
 
     [Header("Floor")]
     public WeightedItem[] floorVariants;
-    public float floorSize;
     public Transform floorParent;
 
     private void GenerateFloor(int width, int height)
@@ -108,7 +118,7 @@ public class MazeGenerator : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 var floor = Instantiate(GetRandomFloor(), floorParent);
-                floor.transform.localPosition = new Vector3(x, 0, y) * floorSize;
+                floor.transform.localPosition = new Vector3(x, 0, y) * TILE_SIZE;
                 floor.name += $" ({x};{y})";
             }
         }
@@ -122,7 +132,6 @@ public class MazeGenerator : MonoBehaviour
 
     [Header("Ceiling")]
     public WeightedItem[] ceilingVariants;
-    public float ceilingSize;
     public float yOffset;
     public Transform ceilingParent;
 
@@ -133,7 +142,7 @@ public class MazeGenerator : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 var ceiling = Instantiate(GetRandomCeiling(), ceilingParent);
-                ceiling.transform.localPosition = new Vector3(x, 0, y) * floorSize + new Vector3(0, yOffset, 0);
+                ceiling.transform.localPosition = new Vector3(x, 0, y) * TILE_SIZE + new Vector3(0, yOffset, 0);
                 ceiling.name += $" ({x};{y})";
             }
         }
@@ -141,6 +150,160 @@ public class MazeGenerator : MonoBehaviour
 
     private GameObject GetRandomCeiling() => GetRandom(ceilingVariants);
 
+    #endregion
+
+    #region Door
+
+    [Header("Doors")]
+    public WeightedItem[] openedDoorsPrefab;
+    public WeightedItem[] closedDoorsPrefab;
+    public Transform doorParent;
+
+    private void GenerateDoors(int width, int height)
+    {
+        // Set maze
+        foreach (var cell in _cells)
+        {
+            // Vertical doors
+            if (cell.X < width - 1)
+            {
+                GameObject prefab = cell.State.HasFlag(CellState.Right)
+                    ? GetClosedDoor()
+                    : GetOpenedDoor();
+
+                GameObject door = null;
+
+                if (prefab != null)
+                {
+                    door = Instantiate(prefab, doorParent);
+                    door.transform.localPosition = new Vector3(cell.X + 1, 0, cell.Y) * TILE_SIZE;
+                    door.name += $" (Vertical)({cell.X};{cell.Y})";
+                }
+            }
+
+            // Horizontal doors
+            if (cell.Y > 0)
+            {
+                GameObject prefab = cell.State.HasFlag(CellState.Bottom)
+                    ? GetClosedDoor()
+                    : GetOpenedDoor();
+
+                GameObject door = null;
+
+                if (prefab != null)
+                {
+                    door = Instantiate(prefab, doorParent);
+                    door.transform.localPosition = new Vector3(cell.X, 0, cell.Y) * TILE_SIZE;
+                    door.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                    door.name += $" (Horizontal)({cell.X};{cell.Y})";
+                }
+            }
+
+        }
+    }
+
+    private GameObject GetClosedDoor() => GetRandom(closedDoorsPrefab);
+    private GameObject GetOpenedDoor() => GetRandom(openedDoorsPrefab);
+
+
+    #endregion
+
+    #region Decors
+
+    [Header("Decors")]
+    public WeightedItem[] decorsPrefab;
+    public Transform decorsParent;
+
+    private void GenerateDecors(int width, int height)
+    {
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                // If on lever, skip
+                if (leversPos.Contains(new Vector2Int(x, y)))
+                    continue;
+
+                var prefab = GetRandomDecor();
+
+                if (prefab == null)
+                    continue;
+
+                var decor = Instantiate(prefab, decorsParent);
+                decor.transform.localPosition = new Vector3(x, 0, y) * TILE_SIZE;
+                decor.name += $" ({x};{y})";
+            }
+        }
+    }
+
+    private GameObject GetRandomDecor() => GetRandom(decorsPrefab);
+
+    #endregion
+
+    #region Lever
+
+    [Header("Levers")]
+    [SerializeField] GameObject lever;
+    [SerializeField] Transform leverParent;
+    private readonly List<Vector2Int> leversPos = new();
+    private int maxCountLevers = 3;
+
+    private void GenerateLevers(int width, int height)
+    {
+        leversPos.Clear();
+        List<Vector2Int> positions = new();
+        for(int y = 0; y < height; y++) 
+        {
+            for(int x = 0; x < width; x++)
+            {
+                positions.Add(new Vector2Int(x, y));
+            }
+        }
+        
+        while (leversPos.Count < maxCountLevers && positions.Count > 0)
+        {
+            int rndIndex = Random.Range(0, positions.Count);
+            Vector2Int pos = positions[rndIndex];
+            positions.RemoveAt(rndIndex);
+            if(!IsLeverValid(pos))
+                continue;
+
+            leversPos.Add(pos);
+        }
+
+        foreach (var pos in leversPos)
+        {
+            GameObject newLever = Instantiate(lever, leverParent);
+            newLever.transform.localPosition = new Vector3(pos.x, 0, pos.y) * TILE_SIZE;
+        }
+    }
+
+    private bool IsLeverValid(Vector2Int position)
+    {
+        if (leversPos.Count == 0) 
+            return true;
+
+        List<Vector2Int> neighborPos = new()
+        {
+            new(position.x - 1, position.y - 1),
+            new(position.x - 1, position.y),
+            new(position.x - 1, position.y + 1),
+            new(position.x, position.y - 1),
+            new(position.x, position.y + 1),
+            new(position.x + 1, position.y - 1),
+            new(position.x + 1, position.y),
+            new(position.x + 1, position.y + 1),
+        };
+
+        foreach (var pos in leversPos)
+        {
+            if (neighborPos.Contains(pos))
+                return false;
+        }
+
+        return true;
+    }
+    
     #endregion
 
     #region Random
@@ -168,134 +331,6 @@ public class MazeGenerator : MonoBehaviour
         return items[^1].prefab;
     }
 
-    #endregion
-
-    #region Door
-
-    [Header("Doors")]
-    public WeightedItem[] openedDoorsPrefab;
-    public WeightedItem[] closedDoorsPrefab;
-    public Transform doorParent;
-
-    private List<GameObject> doors = new();
-
-    private void GenerateDoors(int width, int height)
-    {
-        // Destroy all previous doors
-        foreach (var item in doors)
-            Destroy(item);
-
-        // Set maze
-        foreach (var cell in _cells)
-        {
-            // Vertical doors
-            if (cell.X < width - 1)
-            {
-                GameObject prefab = cell.State.HasFlag(CellState.Right)
-                    ? GetClosedDoor()
-                    : GetOpenedDoor();
-
-                GameObject door = null;
-
-                if (prefab != null)
-                {
-                    door = Instantiate(prefab, doorParent);
-                    door.transform.localPosition = new Vector3(cell.X + 1, 0, cell.Y) * wallWidth;
-                    door.name += $" (Vertical)({cell.X};{cell.Y})";
-                }
-
-                doors.Add(door);
-            }
-
-            // Horizontal doors
-            if (cell.Y > 0)
-            {
-                GameObject prefab = cell.State.HasFlag(CellState.Bottom)
-                    ? GetClosedDoor()
-                    : GetOpenedDoor();
-
-                GameObject door = null;
-
-                if (prefab != null)
-                {
-                    door = Instantiate(prefab, doorParent);
-                    door.transform.localPosition = new Vector3(cell.X, 0, cell.Y) * wallWidth;
-                    door.transform.localRotation = Quaternion.Euler(0, 90, 0);
-                    door.name += $" (Horizontal)({cell.X};{cell.Y})";
-                }
-
-                doors.Add(door);
-            }
-
-        }
-    }
-
-    private GameObject GetClosedDoor() => GetRandom(closedDoorsPrefab);
-    private GameObject GetOpenedDoor() => GetRandom(openedDoorsPrefab);
-
-
-    #endregion
-
-    #region Lever
-
-    [Header("Levers")]
-    [SerializeField] GameObject lever;
-    [SerializeField] Transform leverParent;
-    private int maxCountLevers = 3;
-
-    private void GenerateLevers(int width, int height)
-    {
-        List<Vector2Int> positions = new List<Vector2Int>();
-        List<Vector2Int> leversPos = new List<Vector2Int>();
-        for(int y = 0; y < height; y++) 
-        {
-            for(int x = 0; x < width; x++)
-            {
-                positions.Add(new Vector2Int(x, y));
-            }
-        }
-        
-        while (leversPos.Count < maxCountLevers && positions.Count > 0)
-        {
-            int rndIndex = Random.Range(0, positions.Count);
-            Vector2Int pos = positions[rndIndex];
-            positions.RemoveAt(rndIndex);
-            if(!IsLeverValid(pos, leversPos))
-                continue;
-
-            leversPos.Add(pos);
-        }
-
-        foreach (var pos in leversPos)
-        {
-            GameObject newLever = Instantiate(lever, leverParent);
-            newLever.transform.localPosition = new Vector3(pos.x, 0, pos.y) * floorSize;
-        }
-    }
-    private bool IsLeverValid(Vector2Int position, List<Vector2Int> leverPositions)
-    {
-        if (leverPositions.Count == 0) return true;
-
-        List<Vector2Int> neighborPos = new List<Vector2Int>()
-        {
-            new(position.x - 1, position.y - 1),
-            new(position.x - 1, position.y),
-            new(position.x - 1, position.y + 1),
-            new(position.x, position.y - 1),
-            new(position.x, position.y + 1),
-            new(position.x + 1, position.y - 1),
-            new(position.x + 1, position.y),
-            new(position.x + 1, position.y + 1),
-        };
-
-        foreach (var pos in leverPositions)
-        {
-            if (neighborPos.Contains(pos))
-                return false;
-        }
-
-        return true;
-    }
     #endregion
 
     #region Generation

@@ -98,13 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -1372625422
-  m_StartPoint: {x: 1.5, y: 0, z: 0}
-  m_EndPoint: {x: -1.5, y: 0, z: 0}
+  m_StartPoint: {x: 2.5, y: 0, z: 0}
+  m_EndPoint: {x: -2.5, y: 0, z: 0}
   m_Width: 5
-  m_CostModifier: -1
+  m_CostModifier: -10
   m_Bidirectional: 1
-  m_AutoUpdatePosition: 0
-  m_Area: 2
+  m_AutoUpdatePosition: 1
+  m_Area: 0
 --- !u!1001 &1086468189867756095
 PrefabInstance:
   m_ObjectHideFlags: 0

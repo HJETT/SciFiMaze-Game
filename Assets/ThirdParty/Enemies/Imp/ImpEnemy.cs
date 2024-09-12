@@ -1,19 +1,9 @@
-using UnityEngine;
-using UnityEngine.AI;
-
-[RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Animator))]
-public class ImpEnemy : MonoBehaviour
+public class ImpEnemy : Enemy
 {
-    private NavMeshAgent _agent;
-    private Animator _animator;
-
-    public Transform target;
-
-    void Start()
+    private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
+        _agent.speed += 1f * difficulty;
+        _agent.acceleration += 1f * difficulty;
     }
 
     void Update()
@@ -25,9 +15,4 @@ public class ImpEnemy : MonoBehaviour
         _animator.SetBool("IsJumping", _agent.isOnOffMeshLink);
     }
 
-    public void IncreaseDifficulty()
-    {
-        _agent.speed += 1f;
-        _agent.acceleration += 1f;
-    }
 }

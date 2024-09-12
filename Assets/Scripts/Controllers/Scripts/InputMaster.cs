@@ -9,6 +9,8 @@ namespace ControllerModule.Controllers
     [RequireComponent(typeof(PlayerInput))]
     public class InputMaster : UtilsModule.Singleton<InputMaster>
     {
+        protected override bool DestroyOnLoad => true;
+
         #region Delegate
 
         public delegate void LookEvent(Vector2 direction);
