@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets/ThirdParty/Lever/Scripts/LeverInteract.cs" />
     <Compile Include="Assets/Scripts/Player/HideWhenFar.cs" />
+    <Compile Include="Assets/ThirdParty/Enemies/Enemy.cs" />
     <Compile Include="Assets/Scripts/GameManager/GameManager.cs" />
     <Compile Include="Assets/Scripts/Controllers/Scripts/Controllers/ControllerManager.cs" />
     <Compile Include="Assets/ThirdParty/SciFi Warehouse Kit/Scripts/DoorManager.cs" />
@@ -79,14 +80,13 @@
     <Compile Include="Assets/Scripts/Player/PlayerController.cs" />
     <Compile Include="Assets/Scripts/GameManager/MazeGenerator.cs" />
     <Compile Include="Assets/Scripts/Utils/RandomUtils.cs" />
-    <Compile Include="Assets/ThirdParty/Enemies/Imp/Enemy.cs" />
     <Compile Include="Assets/Scripts/Player/IInteractable.cs" />
     <Compile Include="Assets/Scripts/UI/GameOver.cs" />
     <Compile Include="Assets/Scripts/Controllers/Scripts/InputMaster.cs" />
-    <Compile Include="Assets/FPSCounter.cs" />
     <Compile Include="Assets/Scripts/Extensions/IEnumerableExtension.cs" />
     <Compile Include="Assets/ThirdParty/Enemies/Imp/ImpEnemy.cs" />
     <Compile Include="Assets/Scripts/Controllers/Scripts/Interfaces/IInteractable.cs" />
+    <Compile Include="Assets/ThirdParty/Enemies/Golem/Scripts/GolemEnemy.cs" />
     <Compile Include="Assets/Scripts/Controllers/Temp/TempController1.cs" />
     <Compile Include="Assets/Scripts/Controllers/Scripts/Controllers/Controller.cs" />
     <Compile Include="Assets/Scripts/Controllers/Temp/ToggleInteract.cs" />
@@ -115,6 +115,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+    <None Include="Assets/seeds.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />

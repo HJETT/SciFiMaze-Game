@@ -9,8 +9,8 @@ public class HideWhenFar : MonoBehaviour
     }
 
 
-    public Camera camera; // Assign your camera in the Inspector
-    public Renderer[] renderers; // Assign your mesh's Renderer in the Inspector
+    private Camera camera; // Assign your camera in the Inspector
+    private Renderer[] renderers; // Assign your mesh's Renderer in the Inspector
 
     void Update()
     {

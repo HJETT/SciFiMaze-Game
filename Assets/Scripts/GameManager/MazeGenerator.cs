@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
 {
+    private void Awake()
+    {
+        int rdmSeed = Random.Range(0, int.MaxValue);
+
+        if (useSeed)
+            rdmSeed = seed;
+        else
+            Debug.Log("Current seed: " + rdmSeed);
+
+        Random.InitState(rdmSeed);
+    }
+
     public void BuildMaze(int width, int height)
     {
         foreach (Transform parents in transform)
@@ -34,8 +46,20 @@ public class MazeGenerator : MonoBehaviour
 
     private const float TILE_SIZE = 6;
 
+    #region Seed
+
+    [Header("Seed")]
+    [SerializeField]
+    private bool useSeed;
+
+    [SerializeField]
+    private int seed;
+
+    #endregion
+
     #region Surfaces
 
+    [Header("Surfaces")]
     [SerializeField]
     private NavMeshSurface[] surfaces;
 

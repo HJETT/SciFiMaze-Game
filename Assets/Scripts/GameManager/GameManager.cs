@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ControllerModule.Controllers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UtilsModule;
 
@@ -11,11 +12,8 @@ public class GameManager : Singleton<GameManager>
     public Controller player;
     public MazeGenerator mazeGenerator;
     public GameOver gameOver;
-    private void Start()
-    {
-        difficulty = 0;
-        this.NextLevel();
-    }
+    
+    private void Start() => this.NextLevel();
 
     public void PlayerDeath()
     {
@@ -48,9 +46,11 @@ public class GameManager : Singleton<GameManager>
     {
         // Fondu au noir
         // Désactiver le joueur
-        player.enabled = false;
+        //player.enabled = false;
 
         difficulty++;
+
+        SceneManager.LoadScene("SampleScene");
     }
 
     #endregion

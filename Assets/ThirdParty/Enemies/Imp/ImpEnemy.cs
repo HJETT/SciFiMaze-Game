@@ -14,5 +14,4 @@ public class ImpEnemy : Enemy
         _animator.SetFloat("Speed", _agent.velocity.magnitude / _agent.speed);
         _animator.SetBool("IsJumping", _agent.isOnOffMeshLink);
     }
-
 }
