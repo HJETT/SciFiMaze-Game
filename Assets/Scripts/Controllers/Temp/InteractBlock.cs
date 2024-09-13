@@ -1,5 +1,4 @@
 using UnityEngine;
-using ControllerModule.Controllers.Interfaces;
 
 public class InteractBlock : MonoBehaviour, IInteractable
 {

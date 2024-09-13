@@ -1,5 +1,4 @@
 using ControllerModule.Controllers;
-using ControllerModule.Controllers.Interfaces;
 using UnityEngine;
 
 namespace ControllerModule.Temp

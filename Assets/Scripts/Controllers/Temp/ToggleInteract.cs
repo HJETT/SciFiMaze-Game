@@ -1,4 +1,3 @@
-using ControllerModule.Controllers.Interfaces;
 using UnityEngine;
 
 public class ToggleInteract : MonoBehaviour, IInteractable

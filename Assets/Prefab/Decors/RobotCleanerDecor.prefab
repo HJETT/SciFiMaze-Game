@@ -67,8 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe998e590f18ea4f29596f520daa36af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  renderers: []
 --- !u!1001 &7626185733977405142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,14 +78,6 @@ PrefabInstance:
     - target: {fileID: 473650158291648085, guid: 76cf2830de8ebae91a2163d294fa6692, type: 3}
       propertyPath: m_Name
       value: CleanerBot
-      objectReference: {fileID: 0}
-    - target: {fileID: 3320981106881646706, guid: 76cf2830de8ebae91a2163d294fa6692, type: 3}
-      propertyPath: m_TimeToStationary
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3320981106881646706, guid: 76cf2830de8ebae91a2163d294fa6692, type: 3}
-      propertyPath: m_CarveOnlyStationary
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7619694809105916254, guid: 76cf2830de8ebae91a2163d294fa6692, type: 3}
       propertyPath: m_LocalPosition.x

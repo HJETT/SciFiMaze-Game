@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
 
     #region Next Level
 
+    [Header("Enemies")]
     [SerializeField]
     private Enemy[] enemiesToSpawn;
 
@@ -57,11 +58,17 @@ public class GameManager : Singleton<GameManager>
 
     #region Levers
 
-    public ExitDoorScript exitDoorScript;
-    public List<LeverInteract> levers = new List<LeverInteract>();
+    [Header("Levers")]
     public Image[] lightsUI;
     public Sprite OnLight;
     public Sprite OffLight;
+
+    [HideInInspector]
+    public ExitDoorScript exitDoorScript;
+
+    [HideInInspector]
+    public List<LeverInteract> levers = new List<LeverInteract>();
+
     int nbLeverActivated = 0;
     public void LeverActivated()
     {
