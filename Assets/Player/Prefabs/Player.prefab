@@ -3288,7 +3288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fcfa0d239bfa2cdfa898246baa83f17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf53913899c089a44a42fd315043f8ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4487,7 +4487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fcfa0d239bfa2cdfa898246baa83f17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf53913899c089a44a42fd315043f8ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5820,7 +5820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Eyes: {fileID: 4328810396994211223}
-  animator: {fileID: 0}
+  animator: {fileID: 4621690789619698620}
   interactCursor: {fileID: 21300000, guid: 81320203f387a5b938818aa601a77c9f, type: 3}
   normalCursor: {fileID: 21300000, guid: 3debec8c57cbd1085b6cd5aa49e38886, type: 3}
   cursor: {fileID: 4954842361546934717}
@@ -7776,7 +7776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fcfa0d239bfa2cdfa898246baa83f17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf53913899c089a44a42fd315043f8ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
