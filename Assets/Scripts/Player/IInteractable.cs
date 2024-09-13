@@ -14,12 +14,13 @@ public interface IInteractable
     /// <summary>
     /// Tries to find a target and interacts with it
     /// </summary>
-    public static void TryInteract(Vector3 position, Vector3 direction, float maxDistance = float.MaxValue)
+    public static bool TryInteract(Vector3 position, Vector3 direction, float maxDistance = float.MaxValue)
     {
         if (!CanInteract(position, direction, out IInteractable interactable, maxDistance))
-            return;
+            return false;
 
         Interact(interactable);
+        return true;
     }
 
     /// <summary>

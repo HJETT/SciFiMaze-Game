@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     private Controller controller;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private bool useRootMotion;
+
+    [SerializeField]
     private float walkSpeed = 8;
 
     private float currentSpeed = 8;
@@ -26,16 +32,25 @@ public class PlayerMovement : MonoBehaviour
         if (controller.Eyes == null)
             return;
 
-        // Modify the direction
-        Vector3 movement = (controller.Eyes.forward * direction.y) + (controller.Eyes.right * direction.x);
-        movement.y = 0;
-        movement.Normalize();
+        if (useRootMotion)
+        {
+            animator.SetFloat("SpeedX", this.currentSpeed * direction.x);
+            animator.SetBool("MovingHorizontal", direction.y != 0f);
+            animator.SetFloat("SpeedY", this.currentSpeed * direction.y);
+        }
+        else
+        {
+            // Modify the direction
+            Vector3 movement = (controller.Eyes.forward * direction.y) + (controller.Eyes.right * direction.x);
+            movement.y = 0;
+            movement.Normalize();
 
-        // If not moving, skip
-        if (direction.magnitude <= 0f)
-            return;
+            // If not moving, skip
+            if (direction.magnitude <= 0f)
+                return;
 
-        this._characterController.Move(elapsed * this.currentSpeed * movement);
+            this._characterController.Move(elapsed * this.currentSpeed * movement);
+        }
     }
 
     #endregion
@@ -90,9 +105,15 @@ public class PlayerMovement : MonoBehaviour
         if (!this.isGrounded)
             return;
 
-        // Override gravity
-        this.gravityVelocity.y = this.jumpForce;
+       
         this.hasJumped = true;
+
+        if (useRootMotion)
+            animator.SetTrigger("Jump");
+        // Override gravity
+        else
+             this.gravityVelocity.y = this.jumpForce;
+
     }
 
     public void ProcessJumpRelease()

@@ -6,6 +6,9 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     private Transform Eyes;
 
+    [SerializeField]
+    private Animator animator;
+
     [Header("Cursor")]
     [SerializeField, Tooltip("Determines the sprite to use when an interaction is possible")]
     private Sprite interactCursor;
@@ -50,6 +53,11 @@ public class PlayerInteraction : MonoBehaviour
         if (this.Eyes == null)
             return;
 
-        IInteractable.TryInteract(this.Eyes.position, this.Eyes.forward, this.interactRange);
+        bool hasInteracted = IInteractable.TryInteract(this.Eyes.position, this.Eyes.forward, this.interactRange);
+
+        if (hasInteracted)
+        {
+            animator.SetTrigger("Open");
+        }
     }
 }
