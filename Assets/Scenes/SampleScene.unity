@@ -301,8 +301,8 @@ MonoBehaviour:
   - {fileID: 176623825407020152}
   - {fileID: 8873681225021689371}
   - {fileID: 7074810275369303783}
-  OnLight: {fileID: 21300000, guid: 43d346b08a9a91084a4b4d0a784df9d4, type: 3}
-  OffLight: {fileID: 21300000, guid: 5fcfa0d239bfa2cdfa898246baa83f17, type: 3}
+  OnLight: {fileID: 21300000, guid: f448ef7a8bb4bb142946bc7e48853a40, type: 3}
+  OffLight: {fileID: 21300000, guid: cf53913899c089a44a42fd315043f8ba, type: 3}
   exitDoorScript: {fileID: 0}
   levers: []
 --- !u!114 &1282398810 stripped
